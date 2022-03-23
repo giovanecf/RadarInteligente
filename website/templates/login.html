@@ -1,0 +1,80 @@
+{% extends "base.html" %} {% block title %}Login{% endblock %} {% block content
+%}
+<link rel="stylesheet" href="../static/css/login.css" />
+<div class="root">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <!--INICIO DA COLUNA DE LOGIN-->
+
+            <div class="pt-3">
+              <h1 class="text-center title-h1">Entrar</h1>
+            </div>
+            <div>
+              <h6 class="text-center">
+                One step to <span style="color: #f00a0a">know</span>
+              </h6>
+            </div>
+            <div>
+              <form method="post" class="p-4">
+                <div class="form-floating d-flex justify-content-center mb-4">
+                  <input
+                    type="text"
+                    class="form-control rounded-0"
+                    id="input-user"
+                    name="email"
+                    placeholder="email"
+                  />
+                  <label for="email">Email</label>
+                </div>
+                <div class="form-floating mb-4">
+                  <input
+                    type="password"
+                    class="form-control rounded-0"
+                    id="input-senha"
+                    name="password"
+                    placeholder="password"
+                  />
+                  <label for="password">Senha</label>
+                </div>
+                <div class="d-flex justify-content-between mb-5">
+                  <a
+                    href="/sign-up"
+                    class="btn btn-dark me-4"
+                    style="width: 50%"
+                    id="sign-in-button"
+                  >
+                    <span style="font-weight: bold">Sign up</span>
+                  </a>
+                  <button
+                    type="submit"
+                    class="btn btn-primary ms-4"
+                    style="width: 50%"
+                  >
+                    <span style="font-weight: bold">Login</span>
+                  </button>
+                </div>
+                <div class="text-center">
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Esqueci minha senha"
+                    class="text-decoration-none forgot-password-link"
+                  >
+                    Esqueci minha senha
+                  </a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript"></script>
+  {% endblock %}
+</div>

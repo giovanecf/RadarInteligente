@@ -1,0 +1,8 @@
+.cam-card {
+  width: 24em;
+  max-width: 512px;
+}
+.cam-card:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}

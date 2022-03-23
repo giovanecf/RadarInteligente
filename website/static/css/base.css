@@ -1,7 +1,22 @@
-html {
-  font-family: "Montserrat", sans-serif;
-}
+html,
 body {
+  font-family: "Montserrat", sans-serif;
   background: url("../images/hero_image.jpg") no-repeat center center fixed;
   background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+article {
+  flex-grow: 1;
+}
+.user-icon {
+  width: 1.9em;
+  max-width: 128px;
+}
+
+.footer-text {
+  color: white;
+  text-shadow: 1px #000;
 }

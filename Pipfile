@@ -10,7 +10,6 @@ imutils = "*"
 flask = "*"
 flask-login = "*"
 flask-sqlalchemy = "*"
-pipfile = "*"
 
 [dev-packages]
 

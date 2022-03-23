@@ -1,0 +1,15 @@
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.title-h1 {
+  font-weight: bold;
+}
+
+.privacy-term-link:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}

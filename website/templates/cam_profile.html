@@ -1,0 +1,103 @@
+{% extends "base.html" %} {% block content%}
+<link rel="stylesheet" href="../static/css/cam-profile.css" />
+<div class="container">
+  <br />
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="card">
+        <img class="video-img" src="{{ url_for('views.video_feed')}}" />
+        <div class="card-body">
+          <h5 class="card-title">
+            Trecho #001 | <b style="color: #53c398">Ao vivo</b>
+          </h5>
+          <br />
+          <small>Mainframe-id: <span id="rpiName"></span></small>
+          <hr />
+          <p class="card-text">
+            <small style="color: darkgray; font-weight: bold"
+              >Localização: BR040 - KM 192 | Concessão: CONCER Ltda.</small
+            >
+          </p>
+          <table class="table table-striped" style="font-size: smaller">
+            <thead>
+              <tr>
+                <th scope="col">Info</th>
+                <th scope="col">Atual</th>
+                <th scope="col">Média</th>
+                <th scope="col">Menor</th>
+                <th scope="col">Maior</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">FPS</th>
+                <td id="fps"></td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+              </tr>
+              <tr>
+                <th scope="row">Contador #01</th>
+                <td id="counter"></td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+              </tr>
+
+              <tr>
+                <th scope="row">Velocidade</th>
+                <td>--</td>
+                <td id="mediumVelocity">--</td>
+                <td>--</td>
+                <td>--</td>
+              </tr>
+
+              <tr>
+                <th scope="row">Densidade/faixa</th>
+                <td>--</td>
+                <td id="mediumDensity">--</td>
+                <td>--</td>
+                <td>--</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-body">
+          <a href="#" class="card-link">Criar contador</a>
+          <a href="#" class="card-link">Exportar dados(CSV)</a>
+          <a href="#" class="card-link">Mais câmeras</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  <br />
+</div>
+
+<script>
+  function fetchdata() {
+    $.ajax({
+      url: "{{ url_for('views.data_feed')}}",
+      type: "get",
+      success: function (data) {
+        //console.log("200 OK:" + JSON.stringify(data));
+
+        $("#rpiName").text(data["rpiName"]);
+        $("#fps").text(data["fps"]);
+        $("#counter").text(data["counter"]);
+        $("#mediumVelocity").text(data["mediumVelocity"]);
+        $("#mediumDensity").text(data["mediumDensity"]);
+      },
+      complete: function (data) {
+        setTimeout(fetchdata, 400);
+      },
+      dataType: "json",
+    });
+  }
+
+  $(document).ready(function () {
+    setInterval(fetchdata(), 500);
+  });
+</script>
+{% endblock %}

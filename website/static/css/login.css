@@ -1,0 +1,18 @@
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.title-h1 {
+  font-weight: bold;
+}
+
+.forgot-password-link {
+  color: gray;
+}
+
+.forgot-password-link:hover {
+  color: #444;
+}
